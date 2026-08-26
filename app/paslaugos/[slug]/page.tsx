@@ -4,7 +4,6 @@ import { services } from '@/lib/data';
 import { serviceDetails } from '@/lib/service-details';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
-import Image from 'next/image';
 import { GHLForm } from '@/components/GHLForm';
 
 type Props = {
@@ -63,11 +62,10 @@ export default async function ServicePage({ params }: Props) {
             <div>
               <div className="relative aspect-video rounded-sm overflow-hidden mb-12 shadow-sm border border-slate-200">
                 {/* PAKEISTI Į REALIĄ PASLAUGOS NUOTRAUKĄ */}
-                <Image
+                <img
                   src={`https://picsum.photos/seed/${p.slug}/1200/800`}
                   alt={details.title}
-                  fill
-                  className="object-cover grayscale"
+                  className="absolute inset-0 w-full h-full object-cover grayscale"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-slate-900/10 mix-blend-multiply" />

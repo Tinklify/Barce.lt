@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Building2, HardHat, ClipboardCheck, MapPin } from 'lucide-react';
 import { services } from '@/lib/data';
@@ -11,12 +10,11 @@ export default function Home() {
       <section className="relative bg-slate-900 text-white overflow-hidden">
         {/* PAKEISTI Į TIKRĄ HERO NUOTRAUKĄ */}
         <div className="absolute inset-0 opacity-20">
-          <Image
+          <img
             src="https://picsum.photos/seed/construction/1920/1080"
             alt="Statybos darbai"
-            fill
-            className="object-cover"
-            priority
+            className="absolute inset-0 w-full h-full object-cover"
+           
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40" />
@@ -89,7 +87,7 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-wide">Skaidri sąmata</h3>
               <p className="text-slate-600 leading-relaxed text-sm">
-                Pigiausias pasiūlymas dažnai tampa brangiausiu. Mes pateikiame detalią sąmatą, kurioje nėra paslėptų mokesčių ar "nemačiau" situacijų.
+                Pigiausias pasiūlymas dažnai tampa brangiausiu. Mes pateikiame detalią sąmatą, kurioje nėra paslėptų mokesčių ar &quot;nemačiau&quot; situacijų.
               </p>
             </div>
           </div>
@@ -181,11 +179,10 @@ export default function Home() {
             {/* PAKEISTI Į REALIAS NUOTRAUKAS */}
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="relative aspect-[4/3] rounded-sm overflow-hidden group border border-slate-200">
-                <Image
+                <img
                   src={`https://picsum.photos/seed/portfolio${i}/800/600`}
                   alt={`Atliktas darbas ${i}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors" />
@@ -248,7 +245,7 @@ export default function Home() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-slate-600 mb-6 italic leading-relaxed relative z-10">"Visi darbai nuo pamatų iki stogo atlikti nepriekaištingai. Sąmata nesikeitė nuo pat pradžių, o terminai buvo išlaikyti. Rekomenduoju UAB Barce!"</p>
+                  <p className="text-slate-600 mb-6 italic leading-relaxed relative z-10">&quot;Visi darbai nuo pamatų iki stogo atlikti nepriekaištingai. Sąmata nesikeitė nuo pat pradžių, o terminai buvo išlaikyti. Rekomenduoju UAB Barce!&quot;</p>
                   <div className="relative z-10">
                     <p className="font-bold text-slate-900">Tomas V.</p>
                     <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Namo statyba Kaune</p>
@@ -268,7 +265,7 @@ export default function Home() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-slate-600 mb-6 italic leading-relaxed relative z-10">"Meistrai dirbo labai švariai ir atsakingai. Padėjo su medžiagų parinkimu, visada atsakė į klausimus. Puikus rezultatas, ačiū!"</p>
+                  <p className="text-slate-600 mb-6 italic leading-relaxed relative z-10">&quot;Meistrai dirbo labai švariai ir atsakingai. Padėjo su medžiagų parinkimu, visada atsakė į klausimus. Puikus rezultatas, ačiū!&quot;</p>
                   <div className="relative z-10">
                     <p className="font-bold text-slate-900">Lina M.</p>
                     <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Pilna apdaila</p>

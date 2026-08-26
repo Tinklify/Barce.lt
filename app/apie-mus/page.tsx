@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { CheckCircle2 } from 'lucide-react';
 import { companyInfo } from '@/lib/data';
 
@@ -27,11 +26,10 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-lg border border-slate-200">
              {/* PAKEISTI Į TIKRĄ KOMANDOS/VADOVO NUOTRAUKĄ */}
-            <Image
+            <img
               src="https://picsum.photos/seed/about/800/600"
               alt="Barce, UAB komanda"
-              fill
-              className="object-cover grayscale"
+              className="absolute inset-0 w-full h-full object-cover grayscale"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-orange-900/10 mix-blend-multiply" />

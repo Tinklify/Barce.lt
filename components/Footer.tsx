@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { services, companyInfo } from '@/lib/data';
 import { Mail, Phone, MapPin } from 'lucide-react';
 

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Atlikti darbai | Barce, UAB',
@@ -39,11 +38,10 @@ export default function PortfolioPage() {
             <div key={i} className="group cursor-pointer">
               <div className="relative aspect-square rounded-sm overflow-hidden mb-4 bg-slate-200 border border-slate-200">
                 {/* PAKEISTI Į REALIAS NUOTRAUKAS */}
-                <Image
+                <img
                   src={`https://picsum.photos/seed/project${i}/600/600`}
                   alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors duration-300" />

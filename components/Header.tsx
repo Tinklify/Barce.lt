@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
 import { companyInfo } from '@/lib/data';
 import { usePathname } from 'next/navigation';
