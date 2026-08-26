@@ -13,11 +13,11 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-6">
               <img
-                src="/Barcelogo2-1.png"
+                src="/logo-2.png"
                 alt="Barce, UAB Logo"
-                width={40}
-                height={40}
-                className="rounded-sm object-contain"
+                
+                
+                className="h-10 w-auto object-contain"
               />
               <div className="flex flex-col leading-tight text-white">
                 <span className="text-xl font-bold tracking-tighter">{companyInfo.name}</span>
