@@ -25,7 +25,7 @@ export function Header() {
       <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-7xl">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <Image
+          <img
             src="/Barcelogo.jpeg"
             alt="Barce, UAB Logo"
             width={40}

@@ -12,7 +12,7 @@ export function Footer() {
           {/* Apie įmonę */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-6">
-              <Image
+              <img
                 src="/Barcelogo.jpeg"
                 alt="Barce, UAB Logo"
                 width={40}
