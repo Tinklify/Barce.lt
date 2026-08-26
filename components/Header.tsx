@@ -26,7 +26,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <img
-            src="/Barcelogo2.jpeg"
+            src="/Barcelogo2.png"
             alt="Barce, UAB Logo"
             width={40}
             height={40}
