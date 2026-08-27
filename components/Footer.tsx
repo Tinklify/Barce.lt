@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { services, companyInfo } from '@/lib/data';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
@@ -12,7 +13,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-6">
               <img
-                src="/logo-2.png"
+                src="/logotipas/Barcelogo2.png"
                 alt="Barce, UAB Logo"
                 
                 

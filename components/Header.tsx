@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+
 import Link from 'next/link';
 import { Menu, X, Phone } from 'lucide-react';
 import { companyInfo } from '@/lib/data';
@@ -25,7 +26,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <img
-            src="/logo-2.png"
+            src="/logotipas/Barcelogo2.png"
             alt="Barce, UAB Logo"
             
             

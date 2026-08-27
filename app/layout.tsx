@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     title: `${companyInfo.name} | Pilno ciklo statybos įmonė Kaune`,
     description: 'Barce, UAB - 9 metų patirtį turinti pilno ciklo statybos įmonė Kaune.',
   },
+  icons: {
+    icon: '/logotipas/Barcelogo2.png',
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
