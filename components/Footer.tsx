@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { services, companyInfo } from '@/lib/data';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-slate-900 border-t-2 border-slate-800 text-slate-400 py-12">
       <div className="container mx-auto px-4 max-w-7xl">

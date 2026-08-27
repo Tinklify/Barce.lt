@@ -1,8 +1,8 @@
 import type {Metadata} from 'next';
 import Script from 'next/script';
 import './globals.css';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { companyInfo } from '@/lib/data';
 
 export const metadata: Metadata = {

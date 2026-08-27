@@ -16,7 +16,7 @@ const navLinks = [
   { href: "/kontaktai", label: "Kontaktai" },
 ];
 
-export function Header() {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 

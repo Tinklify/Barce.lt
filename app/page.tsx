@@ -265,7 +265,7 @@ export default function Home() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-slate-600 mb-6 italic leading-relaxed relative z-10">&quot;Meistrai dirbo labai švariai ir atsakingai. Padėjo su medžiagų parinkimu, visada atsakė į klausimus. Puikus rezultatas, ačiū!&quot;</p>
+                  <p className="text-slate-600 mb-6 italic leading-relaxed relative z-10">&quot;Meistrai dirbo labai švariai ir atsakinngai. Padėjo su medžiagų parinkimu, visada atsakė į klausimus. Puikus rezultatas, ačiū!&quot;</p>
                   <div className="relative z-10">
                     <p className="font-bold text-slate-900">Lina M.</p>
                     <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Pilna apdaila</p>
@@ -297,15 +297,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* GHL FORM - LIGHT BACKGROUND */}
+            {/* CALL TO ACTION - REPLACED GHL FORM */}
             <div className="bg-white p-6 md:p-8 rounded-sm text-slate-900 shadow-xl border border-slate-200 relative overflow-hidden border-t-4 border-t-orange-500 w-full max-w-lg mx-auto lg:ml-auto lg:mr-0">
               <div className="absolute top-0 right-0 p-4 opacity-[0.03] pointer-events-none text-slate-900">
                 <Building2 className="w-32 h-32" />
               </div>
               <p className="text-xs uppercase font-black text-orange-500 tracking-widest mb-2 relative z-10 text-center sm:text-left">Gaukite sąmatą</p>
-              <h3 className="text-xl sm:text-2xl font-bold mb-6 relative z-10 text-center sm:text-left">Užpildykite užklausą</h3>
-              <div className="relative z-10">
-                <GHLForm id="ghl-form-samata" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 relative z-10 text-center sm:text-left">Sužinokite preliminarią kainą</h3>
+              <div className="relative z-10 text-center sm:text-left">
+                <Link href="/samata" className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-sm uppercase tracking-widest transition-colors">
+                    Skaičiuoti sąmatą
+                </Link>
               </div>
             </div>
           </div>
