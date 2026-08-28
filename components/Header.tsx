@@ -65,12 +65,12 @@ export default function Header() {
               {companyInfo.phone}
             </a>
           </div>
-          <a
-            href="https://samata.barce.lt/"
+          <Link
+            href="/samata"
             className="hidden md:inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-sm uppercase text-[11px] tracking-widest transition-colors shadow-lg shadow-orange-900/20"
           >
             Gauti sąmatą
-          </a>
+          </Link>
           
           <button
             className="md:hidden p-2 text-slate-400 hover:text-white"
@@ -106,13 +106,13 @@ export default function Header() {
                   {companyInfo.phone}
                 </a>
               </div>
-              <a
-                href="https://samata.barce.lt/"
+              <Link
+                href="/samata"
                 onClick={() => setIsOpen(false)}
                 className="inline-flex items-center justify-center bg-orange-600 text-white font-bold py-3 px-6 rounded-sm uppercase text-[11px] tracking-widest w-full"
               >
                 Gauti sąmatą
-              </a>
+              </Link>
             </div>
           </nav>
         </div>
