@@ -207,9 +207,10 @@ export default function Home() {
               Ką apie mus sako klientai
             </p>
           </div>
-          {/* PLACEHOLDER FOR GHL REVIEWS WIDGET */}
-          <div id="ghl-reviews-widget" className="min-h-[200px] flex items-center justify-center border-2 border-dashed border-slate-200 rounded-sm">
-             <p className="text-slate-400">Čia bus rodomi atsiliepimai (įklijuokite GHL widget kodą)</p>
+          {/* GHL REVIEWS WIDGET */}
+          <div id="ghl-reviews-widget" className="w-full">
+            <script type="text/javascript" src="https://reputationhub.site/reputation/assets/review-widget.js"></script>
+            <iframe className="lc_reviews_widget" src="https://reputationhub.site/reputation/widgets/review_widget/bRV1scOzrklKXCJipSiE?widgetId=6a918909d12b8f519a75c932" frameBorder="0" scrolling="no" style={{minWidth: "100%", width: "100%"}}></iframe>
           </div>
         </div>
       </section>
