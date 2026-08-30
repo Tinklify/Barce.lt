@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Building2, HardHat, ClipboardCheck, MapPin } from 'lucide-react';
 import { services } from '@/lib/data';
 import { GHLForm } from '@/components/GHLForm';
+import BookingCalendar from '@/components/BookingCalendar';
 
 export default function Home() {
   return (
@@ -260,6 +261,33 @@ export default function Home() {
               </Link>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* CONSULTATION RESERVATION SECTION */}
+      <section className="py-24 bg-white border-b border-slate-200">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl font-bold text-slate-900 mb-2 uppercase tracking-wide text-center">Rezervuokite konsultaciją</h2>
+            <p className="text-slate-600 mb-12 text-center">Arba galite patys pasirinkti Jums tinkamą laiką pokalbiui su mūsų specialistu.</p>
+            
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+                {/* Reviews on the left */}
+                <div className="space-y-6">
+                  <div className="bg-slate-50 p-6 rounded-sm border border-slate-200">
+                    <p className="text-slate-600 italic mb-4">&quot;Visi darbai nuo pamatų iki stogo atlikti nepriekaištingai. Sąmata nesikeitė nuo pat pradžių.&quot;</p>
+                    <p className="font-bold text-slate-900">— Tomas V.</p>
+                  </div>
+                  <div className="bg-slate-50 p-6 rounded-sm border border-slate-200">
+                    <p className="text-slate-600 italic mb-4">&quot;Meistrai dirbo labai švariai ir atsakingai. Puikus rezultatas, ačiū!&quot;</p>
+                    <p className="font-bold text-slate-900">— Lina M.</p>
+                  </div>
+                </div>
+
+                {/* Calendar on the right */}
+                <BookingCalendar />
+            </div>
           </div>
         </div>
       </section>

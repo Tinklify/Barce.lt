@@ -119,11 +119,11 @@ export default function SamataPage() {
                 <h3 className="text-2xl font-bold mb-4">Rezervuokite skambutį su mūsų specialistu</h3>
                 <p className="text-slate-300 mb-6">Norite aptarti detales? Rezervuokite trumpą skambutį su mūsų specialistu žemiau.</p>
                 <iframe 
-                    src={`https://link.tinklify.lt/widget/booking/AuVNa5ZlPvEoKwPIZ0s7?first_name=${encodeURIComponent(formData.name.split(' ')[0] || '')}&last_name=${encodeURIComponent(formData.name.split(' ')[1] || '')}&email=${encodeURIComponent(formData.email)}&phone=${encodeURIComponent(formData.phone)}`} 
+                    src={`https://link.tinklify.lt/widget/booking/toeYWKXsEZZntqm99bIs?first_name=${encodeURIComponent(formData.name.split(' ')[0] || '')}&last_name=${encodeURIComponent(formData.name.split(' ')[1] || '')}&email=${encodeURIComponent(formData.email)}&phone=${encodeURIComponent(formData.phone)}`} 
                     allow="payment" 
-                    style={{width: "100%", border: "none", overflow: "hidden", height: "600px"}} 
-                    scrolling="no" 
-                    id="AuVNa5ZlPvEoKwPIZ0s7_1787856506569"
+                    style={{width: "100%", border: "none", overflow: "hidden", minHeight: "800px"}} 
+                    scrolling="yes" 
+                    id="toeYWKXsEZZntqm99bIs_1788113300011"
                 ></iframe>
                 <script src="https://link.tinklify.lt/js/form_embed.js" type="text/javascript"></script>
               </div>

@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { companyInfo } from '@/lib/data';
 import { GHLForm } from '@/components/GHLForm';
+import BookingCalendar from '@/components/BookingCalendar';
 
 export const metadata: Metadata = {
   title: 'Kontaktai | Barce, UAB',
-  description: 'Susisiekite su Barce, UAB dėl statybos ar renovacijos darbų. Gauti nemokamą sąmatą.',
+  description: 'Susisiekite su Barce, UAB dėl statybos ar renovacijos darbų. Užduokite klausimus arba užsisakykite konsultaciją.',
 };
 
 export default function ContactsPage() {
@@ -20,7 +21,7 @@ export default function ContactsPage() {
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Susisiekite su mumis</h1>
           <p className="text-xl text-slate-600 leading-relaxed font-medium">
-            Turite klausimų ar norite aptarti savo projektą? Užpildykite formą arba susisiekite nurodytais kontaktais.
+            Turite klausimų? Užpildykite formą ir mes su Jumis susisieksime bei atsakysime į visus rūpimus klausimus.
           </p>
         </div>
 
@@ -90,9 +91,32 @@ export default function ContactsPage() {
           </div>
 
           <div>
-            <h2 className="text-xl font-bold text-slate-900 mb-6 uppercase tracking-wide">Gauti sąmatą / Užklausa</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-6 uppercase tracking-wide">Turite klausimų?</h2>
             {/* GHL FORM PLACEHOLDER */}
             <GHLForm id="ghl-form-kontaktai" />
+          </div>
+        </div>
+
+        {/* Rezervuokite konsultaciją */}
+        <div className="mt-16 pt-12 border-t border-slate-200 max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-slate-900 mb-2 uppercase tracking-wide text-center">Rezervuokite konsultaciją</h2>
+          <p className="text-slate-600 mb-12 text-center">Arba galite patys pasirinkti Jums tinkamą laiką pokalbiui su mūsų specialistu.</p>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+              {/* Reviews on the left */}
+              <div className="space-y-6">
+                <div className="bg-slate-50 p-6 rounded-sm border border-slate-200">
+                  <p className="text-slate-600 italic mb-4">&quot;Visi darbai nuo pamatų iki stogo atlikti nepriekaištingai. Sąmata nesikeitė nuo pat pradžių.&quot;</p>
+                  <p className="font-bold text-slate-900">— Tomas V.</p>
+                </div>
+                <div className="bg-slate-50 p-6 rounded-sm border border-slate-200">
+                  <p className="text-slate-600 italic mb-4">&quot;Meistrai dirbo labai švariai ir atsakingai. Puikus rezultatas, ačiū!&quot;</p>
+                  <p className="font-bold text-slate-900">— Lina M.</p>
+                </div>
+              </div>
+
+              {/* Calendar on the right */}
+              <BookingCalendar />
           </div>
         </div>
       </div>
