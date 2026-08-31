@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Building2, HardHat, ClipboardCheck, MapPin } from 'lucide-react';
 import { services } from '@/lib/data';
 import { GHLForm } from '@/components/GHLForm';
@@ -11,11 +12,11 @@ export default function Home() {
       <section className="relative bg-slate-900 text-white overflow-hidden">
         {/* PAKEISTI Į TIKRĄ HERO NUOTRAUKĄ */}
         <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://picsum.photos/seed/construction/1920/1080"
+          <Image
+            src="/nuotraukos/2397292_9.jpg"
             alt="Statybos darbai"
+            fill
             className="absolute inset-0 w-full h-full object-cover"
-           
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40" />
