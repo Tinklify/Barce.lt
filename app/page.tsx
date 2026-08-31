@@ -4,6 +4,14 @@ import { ArrowRight, CheckCircle2, Building2, HardHat, ClipboardCheck, MapPin } 
 import { services } from '@/lib/data';
 import { GHLForm } from '@/components/GHLForm';
 import BookingCalendar from '@/components/BookingCalendar';
+import TrustFeatures from '@/components/TrustFeatures';
+import FAQ from '@/components/FAQ';
+import img1 from '@/src/assets/images/regenerated_image_1788181922127.jpg';
+import img2 from '@/src/assets/images/regenerated_image_1788181924193.jpg';
+import img3 from '@/src/assets/images/regenerated_image_1788181925095.jpg';
+import img4 from '@/src/assets/images/regenerated_image_1788181927131.jpg';
+import img5 from '@/src/assets/images/regenerated_image_1788181928665.jpg';
+import img6 from '@/src/assets/images/regenerated_image_1788181929147.jpg';
 
 export default function Home() {
   return (
@@ -53,8 +61,17 @@ export default function Home() {
       </section>
 
       {/* WHY BARCE SECTION */}
-      <section className="py-24 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="py-24 border-b border-slate-200 relative">
+        <div className="absolute inset-0 z-0 opacity-5">
+          <Image
+            src="/nuotraukos/20230626_131712.jpg"
+            alt="Background"
+            fill
+            className="absolute inset-0 w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Kodėl verta rinktis Barce, UAB?</h2>
             <p className="text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tighter">
@@ -97,8 +114,8 @@ export default function Home() {
       </section>
 
       {/* SERVICES OVERVIEW */}
-      <section className="py-24 bg-slate-100">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="py-24 border-b border-slate-200 relative">
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Mūsų Paslaugos / SEO Kryptys</h2>
@@ -169,25 +186,43 @@ export default function Home() {
         </div>
       </section>
 
+      <TrustFeatures />
+      <FAQ />
+
       {/* PORTFOLIO SNIPPET (Placeholder) */}
-      <section className="py-24 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="py-24 border-b border-slate-200 relative">
+        <div className="absolute inset-0 z-0 opacity-5">
+          <Image
+            src="/nuotraukos/2397292_9.jpg"
+            alt="Background"
+            fill
+            className="absolute inset-0 w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Portfolio</h2>
             <p className="text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tighter">Atlikti Darbai</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* PAKEISTI Į REALIAS NUOTRAUKAS */}
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {[
+              { src: img1, alt: "Karkasinio namo statyba" },
+              { src: img2, alt: "Pilna vidaus apdaila" },
+              { src: img3, alt: "Stogo keitimas ir šiltinimas" },
+              { src: img4, alt: "Senos sodybos renovacija" },
+              { src: img5, alt: "Fasado šiltinimas ir apdaila" },
+              { src: img6, alt: "Pamatų betonavimas" },
+            ].map((project, i) => (
               <div key={i} className="relative aspect-[4/3] rounded-sm overflow-hidden group border border-slate-200">
-                <img
-                  src={`https://picsum.photos/seed/portfolio${i}/800/600`}
-                  alt={`Atliktas darbas ${i}`}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                <Image
+                  src={project.src}
+                  alt={project.alt}
+                  fill
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors" />
               </div>
             ))}
           </div>
@@ -201,8 +236,8 @@ export default function Home() {
       </section>
 
       {/* GHL REVIEWS SECTION */}
-      <section className="py-24 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="py-24 border-b border-slate-200 relative">
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Atsiliepimai</h2>
             <p className="text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tighter">
@@ -210,9 +245,9 @@ export default function Home() {
             </p>
           </div>
           {/* GHL REVIEWS WIDGET */}
-          <div id="ghl-reviews-widget" className="w-full">
+          <div id="ghl-reviews-widget" className="w-full" suppressHydrationWarning>
             <script type="text/javascript" src="https://reputationhub.site/reputation/assets/review-widget.js"></script>
-            <iframe className="lc_reviews_widget" src="https://reputationhub.site/reputation/widgets/review_widget/bRV1scOzrklKXCJipSiE?widgetId=6a918909d12b8f519a75c932" frameBorder="0" scrolling="no" style={{minWidth: "100%", width: "100%"}}></iframe>
+            <iframe className="lc_reviews_widget" src="https://reputationhub.site/reputation/widgets/review_widget/bRV1scOzrklKXCJipSiE?widgetId=6a918909d12b8f519a75c932" frameBorder="0" scrolling="no" style={{minWidth: "100%", width: "100%"}} suppressHydrationWarning></iframe>
           </div>
         </div>
       </section>
@@ -229,7 +264,7 @@ export default function Home() {
                 <span className="text-xs font-black text-orange-600 uppercase tracking-widest">Užklausa</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 tracking-tighter">
-                Kodėl verta kreiptis į mus?
+                Norite pradėti projektą?
               </h2>
               <ul className="space-y-6">
                 {[
@@ -267,28 +302,22 @@ export default function Home() {
       </section>
 
       {/* CONSULTATION RESERVATION SECTION */}
-      <section className="py-24 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="max-w-4xl mx-auto">
+      <section className="py-24 border-b border-slate-200 relative">
+        <div className="absolute inset-0 z-0 opacity-5">
+          <Image
+            src="/nuotraukos/2397292_19.jpg"
+            alt="Background"
+            fill
+            className="absolute inset-0 w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-xl font-bold text-slate-900 mb-2 uppercase tracking-wide text-center">Rezervuokite konsultaciją</h2>
             <p className="text-slate-600 mb-12 text-center">Arba galite patys pasirinkti Jums tinkamą laiką pokalbiui su mūsų specialistu.</p>
             
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-                {/* Reviews on the left */}
-                <div className="space-y-6">
-                  <div className="bg-slate-50 p-6 rounded-sm border border-slate-200">
-                    <p className="text-slate-600 italic mb-4">&quot;Visi darbai nuo pamatų iki stogo atlikti nepriekaištingai. Sąmata nesikeitė nuo pat pradžių.&quot;</p>
-                    <p className="font-bold text-slate-900">— Tomas V.</p>
-                  </div>
-                  <div className="bg-slate-50 p-6 rounded-sm border border-slate-200">
-                    <p className="text-slate-600 italic mb-4">&quot;Meistrai dirbo labai švariai ir atsakingai. Puikus rezultatas, ačiū!&quot;</p>
-                    <p className="font-bold text-slate-900">— Lina M.</p>
-                  </div>
-                </div>
-
-                {/* Calendar on the right */}
-                <BookingCalendar />
-            </div>
+            <BookingCalendar />
           </div>
         </div>
       </section>
