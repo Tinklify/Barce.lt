@@ -1,7 +1,6 @@
 import Link from 'next/link';
-
+import { Mail, Phone, MapPin, User, Facebook, Instagram } from 'lucide-react';
 import { services, companyInfo } from '@/lib/data';
-import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -61,7 +60,7 @@ export default function Footer() {
           {/* Kontaktai */}
           <div>
             <h3 className="text-white text-xs font-black uppercase tracking-widest mb-6">Kontaktai</h3>
-            <ul className="space-y-4 text-sm">
+            <ul className="space-y-4 text-sm mb-6">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange-500 shrink-0" />
                 <span>{companyInfo.address}</span>
@@ -79,6 +78,10 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+            <div className="flex gap-4">
+                <a href="#" className="text-slate-400 hover:text-orange-500 transition-colors"><Facebook className="w-6 h-6" /></a>
+                <a href="#" className="text-slate-400 hover:text-orange-500 transition-colors"><Instagram className="w-6 h-6" /></a>
+            </div>
           </div>
 
         </div>
@@ -86,7 +89,15 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-widest text-slate-500">
           <p>&copy; {new Date().getFullYear()} {companyInfo.name}. Visos teisės saugomos.</p>
           <div className="flex flex-wrap gap-4 md:gap-8">
-            <span>Vadovas: {companyInfo.manager}</span>
+            <div className="flex items-center gap-4 bg-slate-800 p-3 rounded-sm">
+            <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-500">
+                <User className="w-6 h-6" />
+            </div>
+            <div className="flex flex-col">
+                <span className="text-white font-bold">{companyInfo.manager}</span>
+                <span className="text-[10px] text-slate-400 uppercase tracking-widest">Vadovas</span>
+            </div>
+          </div>
             <span>{companyInfo.address}</span>
           </div>
         </div>

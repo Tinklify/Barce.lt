@@ -27,7 +27,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 py-24 md:py-32 relative z-10 max-w-7xl">
@@ -223,6 +223,9 @@ export default function Home() {
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
+                <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-white font-bold text-center p-4">{project.alt}</p>
+                </div>
               </div>
             ))}
           </div>

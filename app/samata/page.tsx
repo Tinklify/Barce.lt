@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 
 const SERVICES = [
   "Sienų/grindų/lubų apdailą",
@@ -26,12 +27,16 @@ const RATE_PER_ROOM = 400;
 const MIN_PROJECT_THRESHOLD = 10000;
 
 export default function SamataPage() {
+  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '',
     namoPlotas: 0, voniuSkaicius: 0, kambariuSkaicius: 0,
     selectedServices: [] as string[]
   });
   const [result, setResult] = useState<{ low: number; high: number; needsCustomQuote: boolean } | null>(null);
+
+  const nextStep = () => setStep(prev => Math.min(prev + 1, 3));
+  const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
 
   const toggleService = (service: string) => {
     setFormData(prev => ({
@@ -67,13 +72,19 @@ export default function SamataPage() {
 
     // Submit to API
     try {
-      await fetch('/api/submit-samata', {
+      const response = await fetch('/api/submit-samata', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, lowEstimate, highEstimate })
       });
+      
+      if (!response.ok) {
+        console.error('API submit-samata returned non-ok status:', response.status);
+      } else {
+        console.log('API submit-samata call successful');
+      }
     } catch (error) {
-      console.error('Submission failed', error);
+      console.error('Submission failed (network or other error)', error);
     }
   };
 
@@ -81,32 +92,75 @@ export default function SamataPage() {
     <div className="min-h-screen bg-slate-950 text-white">
       <main className="container mx-auto py-24 px-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center">Gauti nemokamą sąmatą</h1>
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2 rounded-full text-orange-500 text-sm font-bold">
+            <CheckCircle2 className="w-4 h-4" /> 9 metų patirtis
+          </div>
+          <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2 rounded-full text-orange-500 text-sm font-bold">
+            <CheckCircle2 className="w-4 h-4" /> Nemokama sąmata
+          </div>
+          <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2 rounded-full text-orange-500 text-sm font-bold">
+            <CheckCircle2 className="w-4 h-4" /> Atsakymas per 24 val.
+          </div>
+        </div>
         
         {!result ? (
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-slate-900 p-8 rounded-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <input type="text" placeholder="Vardas" required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, name: e.target.value})} />
-              <input type="email" placeholder="El. paštas" required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, email: e.target.value})} />
-              <input type="tel" placeholder="Telefonas" required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, phone: e.target.value})} />
-              <input type="number" placeholder="Namo Plotas (m²)" required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, namoPlotas: parseFloat(e.target.value)})} />
-              <input type="number" placeholder="Vonių skaičius" required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, voniuSkaicius: parseFloat(e.target.value)})} />
-              <input type="number" placeholder="Kambarių skaičius" required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, kambariuSkaicius: parseFloat(e.target.value)})} />
+            <div className="mb-8">
+               <div className="flex justify-between mb-2 text-sm text-orange-500 font-bold uppercase tracking-widest">
+                   <span>Žingsnis {step} iš 3</span>
+               </div>
+               <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                   <div className="bg-orange-600 h-2 transition-all duration-300" style={{width: `${(step/3)*100}%`}}></div>
+               </div>
             </div>
 
-            <div className="mb-8">
-              <label className="block mb-4 font-bold">Paslaugos:</label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {SERVICES.map(s => (
-                  <label key={s} className="flex items-center gap-3">
-                    <input type="checkbox" onChange={() => toggleService(s)} />
-                    {s}
-                  </label>
-                ))}
+            {step === 1 && (
+              <div className="grid grid-cols-1 gap-6 mb-8">
+                <input type="text" placeholder="Vardas" value={formData.name} required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, name: e.target.value})} />
+                <input type="email" placeholder="El. paštas" value={formData.email} required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, email: e.target.value})} />
+                <input type="tel" placeholder="Telefonas" value={formData.phone} required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, phone: e.target.value})} />
               </div>
+            )}
+
+            {step === 2 && (
+              <div className="grid grid-cols-1 gap-6 mb-8">
+                <input type="number" placeholder="Namo Plotas (m²)" value={formData.namoPlotas || ''} required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, namoPlotas: parseFloat(e.target.value)})} />
+                <input type="number" placeholder="Vonių skaičius" value={formData.voniuSkaicius || ''} required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, voniuSkaicius: parseFloat(e.target.value)})} />
+                <input type="number" placeholder="Kambarių skaičius" value={formData.kambariuSkaicius || ''} required className="w-full p-3 bg-slate-800 rounded-sm" onChange={e => setFormData({...formData, kambariuSkaicius: parseFloat(e.target.value)})} />
+              </div>
+            )}
+
+            {step === 3 && (
+              <div className="mb-8">
+                <label className="block mb-4 font-bold">Paslaugos:</label>
+                <div className="grid grid-cols-1 gap-3">
+                  {SERVICES.map(s => (
+                    <label key={s} className="flex items-center gap-3 p-3 bg-slate-800 rounded-sm cursor-pointer hover:bg-slate-700">
+                      <input type="checkbox" checked={formData.selectedServices.includes(s)} onChange={() => toggleService(s)} />
+                      {s}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            <div className="flex gap-4">
+                {step > 1 && (
+                    <button type="button" onClick={prevStep} className="w-full bg-slate-700 hover:bg-slate-600 p-4 font-bold rounded-sm uppercase tracking-widest transition-colors">
+                      Atgal
+                    </button>
+                )}
+                {step < 3 ? (
+                    <button type="button" onClick={nextStep} className="w-full bg-orange-600 hover:bg-orange-700 p-4 font-bold rounded-sm uppercase tracking-widest transition-colors">
+                      Toliau
+                    </button>
+                ) : (
+                    <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 p-4 font-bold rounded-sm uppercase tracking-widest transition-colors">
+                      Skaičiuoti
+                    </button>
+                )}
             </div>
-            <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 p-4 font-bold rounded-sm uppercase tracking-widest transition-colors">
-              Skaičiuoti
-            </button>
           </form>
         ) : (
           <div className="max-w-2xl mx-auto bg-slate-900 p-8 rounded-sm text-center">

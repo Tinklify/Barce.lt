@@ -29,7 +29,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-lg border border-slate-200">
               <Image
-                src="/nuotraukos/2397292_15.jpg"
+                src="/nuotraukos/2397292_9.jpg"
                 alt="Barce, UAB komanda atlieka darbus"
                 fill
                 className="object-cover"
